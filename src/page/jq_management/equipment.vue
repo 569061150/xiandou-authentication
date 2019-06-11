@@ -22,7 +22,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
   $bg: #2d3a4b;
   $light_gray: #eee;
   /* reset element-ui css */

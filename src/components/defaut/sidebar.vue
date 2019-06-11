@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <div  class="name">长城汽车</div>
+    <div class="name"><img src="@/images/icon_car_tips.png" title="长城汽车"><span>长城汽车</span></div>
     <el-row class="tac">
       <el-col :span="24">
 
@@ -10,25 +10,25 @@
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
-          background-color="#545c64"
+          background-color="#333"
           text-color="#fff"
           router
           unique-opened
           active-text-color="#ffd04b">
 
-          <el-submenu :index="child.subs[index].index" v-for="(child, index) in currentNavItems" :key="index">
-
+          <el-submenu :index='i+""' v-for="(item, i) in currentNavItems" :key="i" >
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>{{child.title}} </span>
+              <span>{{item.title}} </span>
             </template>
-            <el-menu-item :index="item.index" v-for="(item,indexs) in child.subs" :key="indexs">
-              {{item.title}}
+            <el-menu-item :index="itemSubs.path"  v-for="(itemSubs, ii) in item.subs" :key="ii">
+              <span>{{itemSubs.title}} </span>
             </el-menu-item>
-
           </el-submenu>
 
+
         </el-menu>
+
       </el-col>
     </el-row>
   </div>
@@ -44,7 +44,6 @@
         isClicked: false,
         iconData: {metas: ''},
         systems: '',
-        items: '',
         value: '',
         input2: '',
         navData: '',
@@ -69,18 +68,64 @@
         console.log("关闭");
         console.log(key);
         console.log(keyPath);
+      },
+      getData(){
+        this.currentNavItems = [
+          {
+            'path': '#',
+            'title': '鉴权管理',
+            'subs':[
+              {
+                'path': '/jq_management/equipment',
+                'title': '设备鉴权'
+              },
+              {
+                'path': '/jq_management/account',
+                'title': '账号鉴权'
+              }
+
+            ]
+          },
+          {
+            'path': '#',
+            'title': '鉴权管理',
+            'subs':[
+              {
+                'path': '/equipmentList',
+                'title': '设备黑白名单'
+              },
+              {
+                'path': '/accountList',
+                'title': '账号黑白名单'
+              }
+
+            ]
+          },
+          {
+            'title': '渠道管理',
+            'subs':[
+              {
+                'path': '/channelManagement',
+                'title': '渠道管理'
+              }
+            ]
+          }
+        ]
       }
     },
     created() {
+      this.getData();
       this.openeds = JSON.parse(sessionStorage.getItem('showIndex'))
 
       // 从sessionStorage得到menuData
-      this.currentNavItems = JSON.parse(sessionStorage.getItem('routes'))
+     // this.currentNavItems = JSON.parse(sessionStorage.getItem('routes'))
     }
   }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.name{background:#000000}
-
+.name{background:#000000;height: 60px;line-height: 60px;font-size:18px;width: 100%;}
+.name img{vertical-align:middle; display: inline-block;}
+.sidebar{width: 100%;}
+.el-menu{border: 0;}
 </style>

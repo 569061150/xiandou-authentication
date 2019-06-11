@@ -22,9 +22,11 @@ router.beforeEach((to, from, next) => {
       console.log("检测到您还未登录,请登录后操作!");
     }
   } else {
-    if (window.localStorage.token === '1') {
+    if (window.localStorage.token === '1' && to.path === '/login') {
+      console.log("ll")
       next({path: '/jq_management/equipment'})
     } else {
+      console.log("ll2")
       next();
     }
   }

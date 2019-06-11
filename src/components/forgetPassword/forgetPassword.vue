@@ -73,7 +73,7 @@
       let validatePassrepeat = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入原始密码'));
-        }else if (value !== this.forgetForm.newsPassword) {
+        } else if (value !== this.forgetForm.newsPassword) {
           callback(new Error("2次密码不一致，请重新输入！"));
         } else {
           callback();
@@ -81,7 +81,7 @@
       };
 
       return {
-        showAlert:false,
+        showAlert: false,
         forgetForm: {
           username: '',
           oldPassword: '',
@@ -117,10 +117,10 @@
           if (valid) {
 
             this.$message({
-              message:"恭喜您，修改成功！",
-              type:"success",
-              duration:1000,
-              onClose:function () {
+              message: "恭喜您，修改成功！",
+              type: "success",
+              duration: 1000,
+              onClose: function () {
                 _this.$router.push({path: '/login'});
               }
             });
@@ -143,7 +143,7 @@
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   .title-container {
     position: relative;

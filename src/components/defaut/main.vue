@@ -1,10 +1,15 @@
 <template>
   <el-container class="onlyel">
-    <el-aside width="200px">
+    <el-aside ref="elaside" :width="width">
       <sidebar></sidebar>
     </el-aside>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>
+        <div class="hd">
+          <div class="fl sd1" @click="anWidth"><span></span><span>长城鉴权系统</span></div>
+          <div class="fr sd1"><span>Daisy</span><span></span></div>
+        </div>
+      </el-header>
       <el-main>
         <router-view v-cloak></router-view>
       </el-main>
@@ -20,7 +25,13 @@
     components: {Sidebar, Navbar},
     data() {
       return {
-        user: ''
+        user: '',
+        width:"200px"
+      }
+    },
+    methods:{
+      anWidth(){
+        this.width = this.width == "200px" ? "80px" : "200px"
       }
     }
   }
@@ -61,7 +72,7 @@
 
   }
 
-  .el-container {
-
+  .sd1 {
+    cursor: pointer;
   }
 </style>
