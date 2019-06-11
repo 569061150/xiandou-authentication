@@ -101,12 +101,11 @@
             return false;
           }
         });
-      },
+      }
     }
 
   }
 </script>
-
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   a.fr{color: #333;}

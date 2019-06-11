@@ -16,7 +16,7 @@
           unique-opened
           active-text-color="#ffd04b">
 
-          <el-submenu :index='i+""' v-for="(item, i) in currentNavItems" :key="i" >
+          <el-submenu class="text-left"  :index='i+""' v-for="(item, i) in currentNavItems" :key="i" >
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>{{item.title}} </span>
@@ -83,7 +83,6 @@
                 'path': '/jq_management/account',
                 'title': '账号鉴权'
               }
-
             ]
           },
           {
@@ -91,11 +90,11 @@
             'title': '鉴权管理',
             'subs':[
               {
-                'path': '/equipmentList',
+                'path': '/Black_White_List/equipmentList',
                 'title': '设备黑白名单'
               },
               {
-                'path': '/accountList',
+                'path': '/Black_White_List/accountList',
                 'title': '账号黑白名单'
               }
 
@@ -124,8 +123,9 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.name{background:#000000;height: 60px;line-height: 60px;font-size:18px;width: 100%;}
+.name{background:#000000;height: 60px;line-height: 60px;font-size:18px;}
 .name img{vertical-align:middle; display: inline-block;}
-.sidebar{width: 100%;}
 .el-menu{border: 0;}
+.text-left{text-align: left;}
+
 </style>

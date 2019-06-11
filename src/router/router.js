@@ -47,6 +47,24 @@ export default new Router({
             auth: true
           },
           component: () => import('@/page/jq_management/account')
+        },
+        {
+          path: '/Black_White_List/equipmentList',
+          name: 'equipmentList',
+          meta: {
+            title: '设备黑白名单',
+            auth: true
+          },
+          component: () => import('@/page/Black_White_List/equipmentList')
+        },
+        {
+          path: '/Black_White_List/accountList',
+          name: 'accountList',
+          meta: {
+            title: '账号黑白名单',
+            auth: true
+          },
+          component: () => import('@/page/Black_White_List/accountList')
         }
       ]
     },
