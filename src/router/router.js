@@ -23,16 +23,17 @@ export default new Router({
     },
     {
       path: '/',
-      name: '/',
+      redirect: {
+        name: 'equipment'
+      },
       meta: {
         title: '主页'
       },
-      redirect: "/jq_management/equipment",
       component: () => import('@/components/defaut/main'),
       children: [
         {
           path: '/jq_management/equipment',
-          name: 'account',
+          name: 'equipment',
           meta: {
             title: '设备鉴权',
             auth: true
@@ -65,6 +66,24 @@ export default new Router({
             auth: true
           },
           component: () => import('@/page/Black_White_List/accountList')
+        },
+        {
+          path: '/Channel/ChannelManagement',
+          name: 'ChannelManagement',
+          meta: {
+            title: '渠道管理',
+            auth: true
+          },
+          component: () => import('@/page/Channel/ChannelManagement')
+        },
+        {
+          path: '/report/center',
+          name: 'center',
+          meta: {
+            title: '报表中心',
+            auth: true
+          },
+          component: () => import('@/page//report/center')
         }
       ]
     },
@@ -98,8 +117,9 @@ export default new Router({
       component: () => import('@/components/defaut/404')
     }, {
       path: '*',
-      name: '404',
-      redirect: "/404"
+      redirect: {
+        name: '404'
+      }
     }
   ]
 })

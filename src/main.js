@@ -12,25 +12,25 @@ Vue.use(Element)
 
 // 登录状态判断
 
-// router.beforeEach((to, from, next) => {
-//
-//   if (to.matched.some(m => m.meta.auth)) {
-//     if (window.localStorage.token === '1') {
-//       next()
-//     } else if (to.path !== '/') {
-//       next({path: '/login'})
-//       console.log("检测到您还未登录,请登录后操作!");
-//     }
-//   } else {
-//     if (window.localStorage.token === '1' && to.path === '/login') {
-//       console.log("ll")
-//       next({path: '/jq_management/equipment'})
-//     } else {
-//       console.log("ll2")
-//       next();
-//     }
-//   }
-// })
+router.beforeEach((to, from, next) => {
+
+  if (to.matched.some(m => m.meta.auth)) {
+    if (window.localStorage.token === '1') {
+      next()
+    } else if (to.path !== '/') {
+      next({path: '/login'})
+      console.log("检测到您还未登录,请登录后操作!");
+    }
+  } else {
+    if (window.localStorage.token === '1' && to.path === '/login') {
+      console.log("ll")
+      next({path: '/jq_management/equipment'})
+    } else {
+      console.log("ll2")
+      next();
+    }
+  }
+})
 
 
 new Vue({

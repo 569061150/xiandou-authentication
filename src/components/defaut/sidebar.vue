@@ -5,23 +5,24 @@
       <el-col :span="24">
 
         <el-menu
+          :collapse="isCollapse"
           :default-active="$route.path"
           :default-openeds="openeds"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
-          background-color="#333"
+          background-color="#001529"
           text-color="#fff"
           router
           unique-opened
           active-text-color="#ffd04b">
 
-          <el-submenu class="text-left"  :index='i+""' v-for="(item, i) in currentNavItems" :key="i" >
+          <el-submenu background-color="red" class="text-left"  :index='i+""' v-for="(item, i) in currentNavItems" :key="i" >
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>{{item.title}} </span>
             </template>
-            <el-menu-item :index="itemSubs.path"  v-for="(itemSubs, ii) in item.subs" :key="ii">
+            <el-menu-item class="itemSubs" :index="itemSubs.path"  v-for="(itemSubs, ii) in item.subs" :key="ii">
               <span>{{itemSubs.title}} </span>
             </el-menu-item>
           </el-submenu>
@@ -37,11 +38,11 @@
 <script>
   export default {
     name: 'v-sidebar',
+    props: ["isCollapse"],
     data() {
       return {
         openeds: ['1'],
         openeds1: ['2'],
-        isClicked: false,
         iconData: {metas: ''},
         systems: '',
         value: '',
@@ -52,17 +53,10 @@
       }
     },
     methods: {
-      umber(n) {
-        return n.replace(/[^0-9]/ig, "")
-      },
-      sliderHover() {
-        this.isClicked = false
-      },
       handleOpen(key, keyPath) {
         console.log("展开");
         console.log(key);
         console.log(keyPath);
-        sessionStorage.setItem('showIndex', JSON.stringify(keyPath));
       },
       handleClose(key, keyPath) {
         console.log("关闭");
@@ -72,7 +66,6 @@
       getData(){
         this.currentNavItems = [
           {
-            'path': '#',
             'title': '鉴权管理',
             'subs':[
               {
@@ -86,7 +79,6 @@
             ]
           },
           {
-            'path': '#',
             'title': '鉴权管理',
             'subs':[
               {
@@ -104,8 +96,17 @@
             'title': '渠道管理',
             'subs':[
               {
-                'path': '/channelManagement',
+                'path': '/Channel/ChannelManagement',
                 'title': '渠道管理'
+              }
+            ]
+          },
+          {
+            'title': '报表中心',
+            'subs':[
+              {
+                'path': '/report/Center',
+                'title': '报表中心'
               }
             ]
           }
@@ -114,7 +115,7 @@
     },
     created() {
       this.getData();
-      this.openeds = JSON.parse(sessionStorage.getItem('showIndex'))
+      // this.openeds = JSON.parse(sessionStorage.getItem('showIndex'))
 
       // 从sessionStorage得到menuData
      // this.currentNavItems = JSON.parse(sessionStorage.getItem('routes'))
@@ -123,9 +124,16 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.name{background:#000000;height: 60px;line-height: 60px;font-size:18px;}
+.name{background:#00284d;height: 60px;line-height: 60px;font-size:18px;}
 .name img{vertical-align:middle; display: inline-block;}
 .el-menu{border: 0;}
 .text-left{text-align: left;}
+.itemSubs{background: #002343!important;}
+.itemSubs:hover{color: #ffd04b!important;}
+
+
+
+
+
 
 </style>

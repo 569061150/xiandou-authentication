@@ -1,13 +1,15 @@
 <template>
   <el-container class="onlyel">
-    <el-aside ref="elaside" :width="width">
-      <sidebar></sidebar>
+    <el-aside :class="{'is-active' : active }">
+      <sidebar :isCollapse="active"></sidebar>
     </el-aside>
     <el-container>
       <el-header>
         <div class="hd">
-          <div class="fl sd1" @click="anWidth"><span></span><span>长城鉴权系统</span></div>
-          <div class="fr sd1"><span>Daisy</span><span></span></div>
+          <div class="fl sd1" @click="sd1">
+            <span></span><span>长城鉴权系统</span>
+          </div>
+          <div class="fr sd1" @click="exit"><span>Daisy</span><span></span></div>
         </div>
       </el-header>
       <el-main>
@@ -26,20 +28,33 @@
     data() {
       return {
         user: '',
-        width:"200px"
+        active: false
       }
     },
-    methods:{
-      anWidth(){
-        this.width = this.width == "200px" ? "80px" : "200px"
+    methods: {
+      sd1() {
+        this.active = !this.active
+      },
+      exit(){
+          localStorage.removeItem("token");
+          this.$router.push('/login')
       }
     }
+
   }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   [v-cloak] {
     display: none !important;
+  }
+
+  .el-aside {
+    transition: width 0.5s;
+  }
+
+  .el-aside.is-active {
+    width: 64px !important;
   }
 
   .el-header, .el-footer {
@@ -50,7 +65,7 @@
   }
 
   .el-aside {
-    background-color: #333;
+    background-color: #001529;
     color: #fff;
     text-align: center;
   }
@@ -61,14 +76,18 @@
     text-align: center;
     line-height: 160px;
   }
-  .onlyel.el-container{position: absolute;}
+
+  .onlyel.el-container {
+    position: absolute;
+  }
+
   .el-container {
     margin-bottom: 0px;
     height: 100%;
-    width:100%;
+    width: 100%;
   }
 
-  .el-container .el-aside{
+  .el-container .el-aside {
 
   }
 
