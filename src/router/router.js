@@ -22,6 +22,14 @@ export default new Router({
       component: () => import('@/components/forgetPassword/forgetPassword')
     },
     {
+      path: '/register',
+      name: 'register',
+      meta: {
+        title: '注册'
+      },
+      component: () => import('@/components/register/register')
+    },
+    {
       path: '/',
       redirect: {
         name: 'equipment'

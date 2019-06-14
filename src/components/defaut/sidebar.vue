@@ -1,6 +1,10 @@
 <template>
   <div class="sidebar">
-    <div class="name"><img src="@/images/icon_car_tips.png" title="长城汽车"><span>长城汽车</span></div>
+    <div class="name">
+      <i class="el-icon-s-home"></i>
+      <!--<img src="@/images/icon_car_tips.png" title="长城汽车">-->
+      <span v-show="!isCollapse">长城汽车</span>
+    </div>
     <el-row class="tac">
       <el-col :span="24">
 
@@ -17,7 +21,7 @@
           unique-opened
           active-text-color="#ffd04b">
 
-          <el-submenu background-color="red" class="text-left"  :index='i+""' v-for="(item, i) in currentNavItems" :key="i" >
+          <el-submenu   background-color="red" class="text-left"  :index='i+""' v-for="(item, i) in currentNavItems" :key="i" >
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>{{item.title}} </span>
@@ -55,13 +59,9 @@
     methods: {
       handleOpen(key, keyPath) {
         console.log("展开");
-        console.log(key);
-        console.log(keyPath);
       },
       handleClose(key, keyPath) {
         console.log("关闭");
-        console.log(key);
-        console.log(keyPath);
       },
       getData(){
         this.currentNavItems = [

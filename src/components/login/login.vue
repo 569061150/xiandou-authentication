@@ -23,8 +23,10 @@
         </el-form-item>
 
         <el-form-item>
-          <el-checkbox class="fl" v-model="loginForm.checked">自动登录</el-checkbox>
-          <a class="fr" href="/#/forgetPassword">修改密码</a>
+          <div class="login-links">
+            <a class="fl" href="/#/forgetPassword">修改密码</a>
+            <a class="fr" href="/#/register">注册</a>
+          </div>
         </el-form-item>
 
 
@@ -66,7 +68,6 @@
         loginForm: {
           username: '',
           password: '',
-          checked: false
         },
         rules: {
           username: [
@@ -87,11 +88,11 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
 
-            login(this.loginForm).then(function(res){
+            login(this.loginForm).then(function (res) {
               console.log("res===");
               console.log(res.data);
 
-              localStorage.setItem("token","1");
+              localStorage.setItem("token", "1");
               _this.$router.push({path: '/'});
 
             });
@@ -108,7 +109,10 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  a.fr{color: #333;}
+  a.fr {
+    color: #333;
+  }
+
   .title-container {
     position: relative;
     line-height: initial;
@@ -158,10 +162,23 @@
   }
 
   .el-form-item__error {
-    top: -20px;
+    bottom: calc(100% + 5px) !important;
+    top: auto;
   }
 
   .el-form-item {
     margin-bottom: 32px;
+    position: relative;
   }
+
+  .login-links a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .login-links a:hover {
+    color: #409EFF;
+    text-decoration: underline;
+  }
+
 </style>

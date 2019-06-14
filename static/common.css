@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height:100%;
+  overflow: auto;
+  width: 100%;
+  background-color: #fff;
+}
+#app{width: 100%;min-height: 100%;position: relative;}
+.hd{overflow: hidden;}
+.fl{float: left;}
+.fr{float: right;}
+.choose {
+  background: #fff;
+  padding: 25px 25px 5px;
+}
+
+.info_inner {
+  padding: 25px 25px 5px;
+  background: #fff;
+  margin-top: 20px;
+}
+
+.el-table thead{background: #f5f7fa;}
+.el-table th, .el-table tr{background: none;}
