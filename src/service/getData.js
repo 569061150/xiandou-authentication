@@ -14,3 +14,4 @@ export const updateState = data => axios.post(baseUrl + 'state/html', data); //�
 
 
 export const login = (data) => axios.post('http://v.juhe.cn/certificates/typeList.php', data); //更新订单状态
+export const getEquipmentDate = (data) => axios.post('/', data); //更新订单状态

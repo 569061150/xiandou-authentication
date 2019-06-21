@@ -12,7 +12,7 @@
               <el-date-picker
                 v-model="formInline.dateVal"
                 type="datetimerange"
-                format="yyyy-MM-dd HH:mm:ss"
+                value-format="yyyy-MM-dd HH:mm:ss"
                 start-placeholder="开始日期"
                 end-placeholder="结束日期"
                 :default-time="['00:00:00']"
@@ -50,8 +50,8 @@
           <div class="span ">
             <el-form-item label="鉴权状态：" prop="resource">
               <el-radio-group v-model="formInline.resource">
-                <el-radio label="鉴权成功"></el-radio>
-                <el-radio label="鉴权失败"></el-radio>
+                <el-radio label="鉴权成功">鉴权成功</el-radio>
+                <el-radio label="鉴权失败">鉴权失败</el-radio>
               </el-radio-group>
             </el-form-item>
           </div>
@@ -69,54 +69,88 @@
     <div class="info_inner">
       <div>
         <el-table
-          :data="tableData"
-          style="width: 100%">
+          height="350"
+          :data="tableData">
           <el-table-column
             prop="number"
+            min-width="50"
+            align="center"
             label="序号"
           >
           </el-table-column>
           <el-table-column
             prop="time"
+            min-width="150"
+            align="center"
             label="时间"
           >
           </el-table-column>
 
           <el-table-column
-            prop="time"
+            prop="channel"
+            min-width="150"
+            align="center"
             label="渠道"
           >
           </el-table-column>
 
           <el-table-column
-            prop="time"
+            prop="snNumber"
+            min-width="234"
+            align="center"
             label="车机SN号"
           >
           </el-table-column>
 
           <el-table-column
-            prop="time"
+            prop="vinNumber"
+            min-width="234"
+            align="center"
             label="Vin码"
           >
           </el-table-column>
 
           <el-table-column
-            prop="time"
+            prop="ipAddress"
+            min-width="150"
+            align="center"
             label="IP地址"
           >
           </el-table-column>
 
           <el-table-column
-            prop="time"
+            prop="state"
+            min-width="120"
+            align="center"
             label="鉴权状态及原因"
           >
+
+            <template slot-scope="scope">
+              <el-tag
+                :type="scope.row.state === '鉴权失败' ? 'primary' : 'success'"
+                disable-transitions>{{scope.row.state}}</el-tag>
+            </template>
+
+
           </el-table-column>
 
           <el-table-column
-            prop="address"
-            label="地址">
+            prop="reason"
+            min-width="100"
+            align="center"
+            label="原因">
           </el-table-column>
         </el-table>
+      </div>
+      <div class="block pdt35">
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage3"
+          :page-size="100"
+          layout="prev, pager, next, jumper"
+          :total="1000">
+        </el-pagination>
       </div>
     </div>
 
@@ -126,9 +160,9 @@
 
 <script>
   // import {generaMenu} from '@/config/tools'
-
+  import {getEquipmentDate} from '@/service/getData'
   export default {
-    name: 'login',
+    name: 'equipment',
     data() {
       var dateValFn = (rule, value, callback) => {
         console.log("value111")
@@ -139,17 +173,15 @@
           callback();
         }
       };
-
-
       return {
+        currentPage3: 5,
         formInline: {
           dateVal: '',
           mark: '',
-          age: '',
           vin: "",
           ChannelName: "",
           IPaddress: "",
-          resource: ""
+          resource: "",
         },
         rules: {
           dateVal: [
@@ -162,7 +194,7 @@
             {required: true, message: '请输入17位Vin号', trigger: 'blur'},
           ],
           ChannelName: [
-            {required: true, message: '请输入渠道名称', trigger: 'blur'},
+            {required: true, message: '请输入渠道名称', trigger: 'change'},
           ],
           IPaddress: [
             {required: true, message: '请输入IP地址', trigger: 'change'}
@@ -228,20 +260,51 @@
     },
     methods: {
       submitForm(formName) {
-
         this.$refs[formName].validate((valid) => {
 
           console.log(this.formInline)
           if (valid) {
             alert('submit!');
+            this.getInfoFn();
+
           } else {
             console.log('error submit!!');
             return false;
           }
         });
       },
+      async getInfoFn(param) {
+
+        for(var i=0;i<5;i++){
+          this.tableData.push({
+            number: i,
+            time: '2019.3.25  10:25',
+            channel: '博泰车机',
+            snNumber: 'QBLKVL71161810290051',
+            vinNumber: 'KVL71161810290051',
+            ipAddress: '175.164.139.246 ',
+            state: '鉴权失败',
+            reason: '成功'
+          })
+        }
+
+        const res = await getEquipmentDate(param);
+        console.log("res===")
+        console.log(res)
+        if (res && res.status === 200) {
+
+        } else {
+
+        }
+      },
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      },
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
       }
     }
   }
@@ -254,6 +317,7 @@
     overflow: hidden;
     height: 65px;
   }
+  .pdt35{padding: 35px 0;}
 
   .el-form--inline .el-form-item__label {
     float: left;

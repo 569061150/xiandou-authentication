@@ -45,7 +45,9 @@
 
   .el-aside.is-active {
     width: 64px !important;
+    transition: width 0.5s;
   }
+  .el-aside.is-active span{display: none;}
 
   .el-header, .el-footer {
     background-color: #fff;

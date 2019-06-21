@@ -1,0 +1,231 @@
+﻿.ax_default {
+  font-family:'ArialMT', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  color:#333333;
+  text-align:center;
+  line-height:normal;
+}
+.box_1 {
+}
+.marker {
+  color:#FFFFFF;
+}
+.box_2 {
+}
+.box_3 {
+}
+.primary_button {
+  color:#FFFFFF;
+}
+.ellipse {
+}
+.shape {
+}
+.image {
+}
+.placeholder {
+}
+.button {
+}
+.heading_1 {
+  font-family:'ArialMT', 'Arial';
+  font-weight:bold;
+  font-size:32px;
+  text-align:left;
+}
+.heading_2 {
+  font-family:'ArialMT', 'Arial';
+  font-weight:bold;
+  font-size:24px;
+  text-align:left;
+}
+.heading_3 {
+  font-family:'ArialMT', 'Arial';
+  font-weight:bold;
+  font-size:18px;
+  text-align:left;
+}
+._连接线 {
+  font-family:'ArialMT', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  color:rgba(51, 255, 153, 0.909803921568627);
+  text-align:center;
+  line-height:normal;
+}
+.heading_4 {
+  font-family:'ArialMT', 'Arial';
+  font-weight:bold;
+  font-size:14px;
+  text-align:left;
+}
+.heading_5 {
+  font-family:'ArialMT', 'Arial';
+  font-weight:bold;
+  text-align:left;
+}
+.heading_6 {
+  font-family:'ArialMT', 'Arial';
+  font-weight:bold;
+  font-size:10px;
+  text-align:left;
+}
+.label {
+  font-size:14px;
+  text-align:left;
+}
+.paragraph {
+  text-align:left;
+}
+.line {
+}
+.droplist {
+  color:#000000;
+  text-align:left;
+}
+.radio_button {
+  text-align:left;
+}
+.flow_shape {
+}
+.connector {
+  font-family:'PingFangSC-Semibold', 'PingFang SC Semibold', 'PingFang SC';
+  font-weight:650;
+  color:#FF0000;
+}
+.table {
+}
+.table_cell {
+}
+._图片 {
+}
+._文本段落 {
+  text-align:left;
+}
+._一级标题 {
+  font-family:'ArialMT', 'Arial';
+  font-weight:bold;
+  font-size:32px;
+  text-align:left;
+}
+._图片1 {
+  color:#000000;
+}
+._形状 {
+}
+.paragraph1 {
+  text-align:left;
+}
+.shape1 {
+}
+.image1 {
+  color:#000000;
+}
+.horizontal_line {
+}
+.vertical_line {
+}
+.heading_11 {
+  font-family:'Arial-BoldMT', 'Arial Bold', 'Arial';
+  font-weight:700;
+  font-size:32px;
+  text-align:left;
+}
+.heading_21 {
+  font-family:'Arial-BoldMT', 'Arial Bold', 'Arial';
+  font-weight:700;
+  font-size:24px;
+  text-align:left;
+}
+.label1 {
+  font-size:14px;
+  text-align:left;
+}
+._图片2 {
+}
+.icon {
+}
+.marker1 {
+  color:#FFFFFF;
+}
+.shape2 {
+}
+.box_21 {
+}
+.image2 {
+  color:#000000;
+}
+.label2 {
+  font-size:14px;
+  text-align:left;
+}
+.heading_12 {
+  font-family:'Arial-BoldMT', 'Arial Bold', 'Arial';
+  font-weight:700;
+  font-size:32px;
+  text-align:left;
+}
+.box_11 {
+}
+.paragraph2 {
+  text-align:left;
+}
+.iconfont {
+  font-family:'iconfont Regular', 'iconfont';
+  font-weight:400;
+  font-style:normal;
+  font-size:18px;
+  color:#666666;
+}
+.el-button {
+  font-family:'ArialMT', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#606266;
+  text-align:center;
+}
+.el-button-primary {
+  font-family:'ArialMT', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#FFFFFF;
+  text-align:center;
+}
+.el-button-primary-plain {
+  font-family:'ArialMT', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#409EFF;
+  text-align:center;
+}
+.el-button-m {
+  font-family:'ArialMT', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#606266;
+  text-align:center;
+}
+.radio-check {
+}
+.radio-uncheck {
+  color:#333333;
+}
+.radio-label-check {
+  font-family:'PingFangSC-Regular', 'PingFang SC';
+  font-size:14px;
+  color:#409EFF;
+  text-align:left;
+}
+.radio-label-uncheck {
+  font-family:'PingFangSC-Regular', 'PingFang SC';
+  font-size:14px;
+  color:#6B6B6B;
+  text-align:left;
+}

@@ -25,3 +25,4 @@ html, body {
 
 .el-table thead{background: #f5f7fa;}
 .el-table th, .el-table tr{background: none;}
+.el-table::before{content: initial!important;}
